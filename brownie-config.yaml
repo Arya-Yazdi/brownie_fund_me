@@ -1,0 +1,22 @@
+dependencies: 
+  # syntax: - <organization>/<repo-name>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+
+compiler: 
+  solc:
+    remappings:
+    # Tells compiler Whenever @chainlink is present in .sol file, it is referring to the following package 
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+
+dotenv: .env
+
+networks:
+  rinkeby: 
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    verify: True
+  development: 
+    verify: False
+  ganache-local:
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY}
